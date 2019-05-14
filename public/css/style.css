@@ -1,0 +1,40 @@
+body{
+    background: #0F2027;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+input[type=text]   {
+    width:50%;
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+}
+
+input[type=text]:hover{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+}
+
+input[type = submit], button{
+    border:2px solid #aaa;
+    border-radius:4px;
+    padding:8px;
+    color: #2C5364;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+
+.block p{
+    font-family: 'Roboto Slab', serif;
+    display: block;
+    background-color: #fff;
+    padding: 5px;
+    width: 30%;
+    border: 2px solid #c471ed;
+}
