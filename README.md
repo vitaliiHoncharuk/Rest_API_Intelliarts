@@ -13,8 +13,8 @@ Same to node. Default port is 3000, make sure it's free.
 
 #### Finally
 ```npm
-npm init
-npm install --y
+npm init --y
+npm install 
 ```
 
 Now run
