@@ -13,7 +13,7 @@ function add() {
        btn[i].onclick = function() {
            let data = btn[i].innerHTML;
            let [, ...textToAdd] = data;
-           input.value += textToAdd.join("");
+           input.value += textToAdd.join("").toLowerCase();
        }
    }
 }
