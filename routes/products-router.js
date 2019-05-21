@@ -1,16 +1,21 @@
 let productsRouter = require("express").Router();
-let productController = require("../controllers/product-controller");
+let {
+    getLastElement,
+    report,
+    getAll
+} = require("../controllers/product-controller");
 
+// /api/product/
 
-productsRouter.get('', productController.getAll);
+productsRouter.get('/', getAll);
 
-productsRouter.get('/purchase', productController.getLastElement);
+productsRouter.get('/purchase', getLastElement);
 
-productsRouter.get('/report', productController.report);
+productsRouter.get('/report', report);
 
-productsRouter.post('', productController.registerProduct);
+productsRouter.post('/', productController.registerProduct);
 
-productsRouter.delete('',productController.deleteByDate);
+productsRouter.delete('/:date', productController.deleteByDate);
 
 
 module.exports = productsRouter;

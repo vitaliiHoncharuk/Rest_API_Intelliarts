@@ -1,7 +1,7 @@
-let apiRouter = require("express").Router();
+let router = require("express").Router();
 
 let productRouter = require("./products-router");
 
-apiRouter.use("/products", productRouter);
+router.use("/products", productRouter);
 
-module.exports = apiRouter;
+module.exports = router;
