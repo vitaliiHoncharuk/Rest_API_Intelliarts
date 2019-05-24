@@ -13,10 +13,15 @@ app.use(express.static(path.join(__dirname,"public")));
 
 app.use('/api',apiRouter);
 
-app.use((err ,req , res, next) => {
+app.use((err ,req , res) => {
     console.log(err);
     res.end("Error!")
 });
+
+app.use('*',(req,res)=>{
+    res.status(404).json();
+});
+
 
 app.listen(3000, ()=>{
     console.log("Listening...");

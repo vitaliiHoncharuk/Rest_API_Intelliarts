@@ -1,12 +1,11 @@
 function cleanUp() {
-    const className = "block";
-    const q = document.getElementsByClassName(className);
-    document.body.removeChild(q[0]);
+    const selectBlock = document.getElementsByClassName("block");
+    document.body.removeChild(selectBlock[0]);
 }
 
 
 
-function add() {
+function BtnListener() {
     const btn = document.getElementsByTagName("button");
     const input = document.getElementById("text");
    for (let i = 1; i <btn.length; i++) {

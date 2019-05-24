@@ -4,8 +4,8 @@ async function convertToAndShow(year,currencyName) {
     let Euro = 0;
     let response = await fetch("http://data.fixer.io/api/latest?access_key=32ac004ac55fd87e65c0594fc651efc5");
     let parsed = await response.json();
-    let q = document.createElement("div");
-    q.className+="block";
+    let div = document.createElement("div");
+    div.className += "block";
     for (let i = 0;i < data.length;i++){
         if (data[i]._id.year === year){
             Euro = data[i].sum / parsed.rates[data[i]._id.currency];
@@ -14,6 +14,6 @@ async function convertToAndShow(year,currencyName) {
     }
     let p = document.createElement("p");
     p.innerHTML = `${sum.toFixed(2)} ${currencyName}`;
-    q.appendChild(p);
-    document.body.appendChild(q);
+    div.appendChild(p);
+    document.body.appendChild(div);
 }

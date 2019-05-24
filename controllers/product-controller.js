@@ -1,7 +1,5 @@
 let Products = require("../models/products");
-
 let productController = {};
-
 
 
 productController.getAll = async (req, res, next) => {
@@ -36,9 +34,12 @@ productController.getLastElement =  async (req, res, next) => {
 
 productController.registerProduct = async (req, res, next) => {
     try {
-        let body = req.body;
-        let dateTime = new Date(body.date).getTime();
-        res.status(201).json(Products.create(await addProduct(body.date,body.price,body.currency,body.item,dateTime)));
+        let {date,price,currency,productName} = req.body;
+        let isValidDate = Date.parse(date);
+        if( !isNaN(isValidDate) && !isNaN(price) && CurrencyValidationArray.includes(currency) && !productName) {
+            let dateTime = new Date(date).getTime();
+            res.status(201).json(Products.create(await addProduct(date, price, currency, productName, dateTime)));
+        }
     }
     catch (e) {
         next(e);
@@ -47,6 +48,7 @@ productController.registerProduct = async (req, res, next) => {
 
 
 productController.deleteByDate = async (req, res, next) => {
+
     try {
         let reqDate =(new Date(req.body.date));
         reqDate.setUTCHours(0);
@@ -88,9 +90,9 @@ module.exports = productController;
 async function addProduct(date,price,currency,item,dateTime) {
     await  Products.create({
         date : new Date(date),
-        price: price,
-        currency : currency,
-        item : item,
-        dateTime : dateTime
+        price,
+        currency,
+        item,
+        dateTime
     });
 }
