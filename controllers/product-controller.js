@@ -35,11 +35,8 @@ productController.getLastElement =  async (req, res, next) => {
 productController.registerProduct = async (req, res, next) => {
     try {
         let {date,price,currency,productName} = req.body;
-        let isValidDate = Date.parse(date);
-        if( !isNaN(isValidDate) && !isNaN(price) && CurrencyValidationArray.includes(currency) && !productName) {
             let dateTime = new Date(date).getTime();
             res.status(201).json(Products.create(await addProduct(date, price, currency, productName, dateTime)));
-        }
     }
     catch (e) {
         next(e);

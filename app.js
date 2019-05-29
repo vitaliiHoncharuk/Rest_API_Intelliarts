@@ -15,7 +15,6 @@ app.use('/api',apiRouter);
 
 app.use((err ,req , res) => {
     console.log(err);
-    res.end("Error!")
 });
 
 app.use('*',(req,res)=>{

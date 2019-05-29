@@ -1,4 +1,5 @@
 function getAll (elem) {
+    console.log(elem);
     let div = document.createElement("div");
     div.className = "block";
     if (elem.length > 1) {

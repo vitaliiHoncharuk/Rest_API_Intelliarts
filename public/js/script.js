@@ -21,11 +21,9 @@ function manageRoute() {
             let productName;
             let isValidDate = Date.parse(date);
             !productNameQuery[1]? productName = productNameQuery[0] : productName = productNameQuery.join(" ");
-
-            if( !isNaN(isValidDate) && !isNaN(price) && CurrencyValidationArray.includes(currency) && !productName) {
+            if( !isNaN(isValidDate) && !isNaN(price) && CurrencyValidationArray.includes(currency) && productName) {
                 fetchRequest(mainUrl, "post", {date, price, currency,productName});
-                showPurchase(inputQuery);
-                console.log(inputQuery);
+                showPurchase(date,price,currency,productNameQuery);
                 fetch(purchaseUrl)
                     .then(res => res.json())
                     .catch(err => console.log(err));
